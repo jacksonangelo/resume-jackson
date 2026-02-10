@@ -1,1 +1,140 @@
+:root {
+  --primary: #e05353;
+  --dark: #2d2d2d;
+  --muted: #6c757d;
+  --light-bg: #f5f7f9;
+}
 
+/* Base */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #eef1f4;
+  color: var(--dark);
+}
+
+.resume-wrapper {
+  max-width: 1000px;
+  background: #fff;
+  border-radius: 6px;
+}
+
+/* HEADER */
+.resume-name {
+  color: var(--primary);
+  font-weight: 900;
+  letter-spacing: 6px;
+  font-size: 2rem;
+}
+
+.resume-tagline {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-top: -6px;
+}
+
+/* FOTO */
+.resume-profile-image {
+  width: 95px;
+  border-radius: 50%;
+}
+
+/* TÍTULOS DAS SEÇÕES (barrinha verde) */
+.resume-section-heading {
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: var(--primary);
+  border-left: 4px solid var(--primary);
+  padding-left: 10px;
+  margin-bottom: 18px;
+}
+
+/* TEXTOS */
+.item-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.item-meta {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.resume-list li {
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+}
+
+/* COLUNA DIREITA */
+.resume-aside {
+  background: var(--light-bg);
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.resume-aside .item-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.resume-skills-list li,
+.resume-lang-list li,
+.resume-interests-list li {
+  font-size: 0.82rem;
+  margin-bottom: 6px;
+}
+/* Corrige quebra do email e alinhamento do header */
+.resume-contact li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.resume-contact a {
+  word-break: break-all;
+}
+
+/* LINKS */
+.resume-link {
+  text-decoration: none;
+  color: var(--dark);
+  font-size: 0.85rem;
+}
+
+.resume-link:hover {
+  color: var(--primary);
+}
+
+/* FOOTER */
+.resume-footer {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+/* Alinhamento perfeito dos ícones */
+.icon {
+  width: 22px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  color: var(--primary);
+  font-size: 14px;
+}
+
+/* Footer social alinhado */
+.resume-social-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Corrige alinhamento do bloco de contactos em telas grandes */
+.resume-contact ul {
+  text-align: left !important;
+}
+
+.resume-contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
