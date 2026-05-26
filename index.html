@@ -1,77 +1,170 @@
 <!DOCTYPE html>
-<html lang="pt"> 
+<html lang="pt">
 <head>
+	<!-- ============================================================
+	  CONFIGURAÇÕES DA PÁGINA
+	  → Altere o <title> com o seu nome
+	  → Atualize a meta "author" e "description" com seu perfil
+	  → Troque o favicon em <link rel="icon"> pela sua foto (ex: assets/images/profile.webp)
+	============================================================ -->
 	<title>Currículo - Jackson Garcia</title>
-	
-	<!-- Meta -->
+
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="Jackson Garcia">    
-    <link rel="icon" href="assets/images/devcon.png" type="image/png">
-	
-	<!-- Google Fonts -->
+	<meta name="description" content="Currículo online de Jackson Garcia — Desenvolvedor Web Front-end">
+	<meta name="author" content="Jackson Garcia">
+	<link rel="icon" href="assets/images/profile.webp" type="image/webp">
+
+	<!-- ============================================================
+	  FONTES — Google Fonts
+	  → A fonte atual é "Inter", moderna e ideal para CVs técnicos.
+	  → Para trocar, visite https://fonts.google.com, escolha outra
+	    fonte e substitua o link abaixo + atualize font-family no CSS.
+	============================================================ -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-	
-	<!-- FontAwesome JS-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-	<!-- Bootstrap --> 
-	   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-	<!-- Theme CSS -->  
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+	<!-- ============================================================
+	  ÍCONES — Font Awesome 6
+	  → Todos os ícones do projeto usam Font Awesome.
+	  → Pesquise novos ícones em: https://fontawesome.com/icons
+	  → Uso: <i class="fas fa-nome-do-icone"></i>
+	============================================================ -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+	<!-- ============================================================
+	  FRAMEWORK CSS — Bootstrap 5
+	  → Usado apenas para o grid responsivo (col-12, col-md-6, etc.)
+	  → Não é necessário conhecer Bootstrap a fundo para personalizar.
+	============================================================ -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- ============================================================
+	  ESTILOS PERSONALIZADOS
+	  → Toda a aparência visual está em assets/css/style.css
+	  → Cores, tamanhos, espaçamentos — tudo é controlado por lá.
+	============================================================ -->
 	<link id="theme-style" rel="stylesheet" href="assets/css/style.css">
 
-</head> 
+</head>
 
 <body>
-	
+
 	<div class="main-wrapper">
 		<div class="container px-3 px-lg-5">
-		<article class="resume-wrapper mx-auto theme-bg-light p-5 mb-5 my-5 shadow-lg">
-				
+
+		<!-- ============================================================
+		  CARTÃO PRINCIPAL DO CURRÍCULO
+		  → Este <article> é o "papel" do CV — fundo branco com sombra.
+		  → Não altere as classes Bootstrap aqui a menos que queira
+		    mudar margens verticais (my-5 = margem top/bottom).
+		============================================================ -->
+		<article class="resume-wrapper mx-auto my-5 mb-5">
+
+				<!-- ============================================================
+				  CABEÇALHO (HEADER)
+				  → Fundo escuro com gradiente azul no topo.
+				  → ALTERE AQUI:
+				    - Seu nome completo (.resume-name)
+				    - Sua profissão / cargo (.resume-tagline)
+				    - Telefone, e-mail, website e cidade (.resume-contact)
+				  → Para o telefone: href="tel:+351XXXXXXXXX"
+				  → Para o e-mail:   href="mailto:seuemail@exemplo.com"
+				  → Para o website: href="https://seusite.com"
+				============================================================ -->
 				<div class="resume-header">
 					<div class="row align-items-center">
+
+						<!-- Nome e Título Profissional -->
 						<div class="resume-title col-12 col-md-6 col-lg-8 col-xl-9">
 							<h2 class="resume-name mb-0 text-uppercase">Jackson Garcia</h2>
 							<div class="resume-tagline mb-3 mb-md-0">Desenvolvedor Web Front-end</div>
 						</div><!--//resume-title-->
+
+						<!-- Informações de Contacto -->
 						<div class="resume-contact col-12 col-md-6 col-lg-4 col-xl-3">
 							<ul class="list-unstyled mb-0">
+								<!-- Telefone → substitua o número e o href="tel:+XXXXXXXXXXX" -->
 								<li class="mb-2"><i class="fas fa-phone icon"></i><a class="resume-link" href="tel:#">+351 914 411 414</a></li>
+								<!-- E-mail → substitua o endereço e o href="mailto:..." -->
 								<li class="mb-2"><i class="fas fa-envelope icon"></i><a class="resume-link" href="mailto:#">jacksonangelo24@gmail.com</a></li>
-								<!--<li class="mb-2"><i class="fas fa-globe fa-fw fa-lg me-2"></i><a class="resume-link" href="#">www.yourwebsite.com</a></li> -->
+								<!-- Website / Portfólio → substitua o URL -->
+								<li class="mb-2"><i class="fas fa-globe icon"></i><a class="resume-link" href="http://www.jacksongarcia.dev" target="_blank">www.jacksongarcia.dev</a></li>
+								<!-- Localização → texto simples, sem link -->
 								<li class="mb-0"><i class="fas fa-map-marker-alt icon"></i>Lisboa</li>
 							</ul>
 						</div><!--//resume-contact-->
+
 					</div><!--//row-->
-					
 				</div><!--//resume-header-->
+
+
+				<!-- ============================================================
+				  INTRODUÇÃO / FOTO E BIO
+				  → ALTERE AQUI:
+				    - Foto: troque o src="assets/images/resume-profile.webp"
+				      pela sua imagem (coloque na pasta assets/images/).
+				      Formatos aceites: .webp, .jpg, .png
+				    - Parágrafo de apresentação: edite o <p> com seu resumo.
+				      Mantenha entre 4-6 linhas para boa apresentação visual.
+				============================================================ -->
 				<div class="resume-intro py-3">
 					<div class="row align-items-center">
+
+						<!-- Foto de Perfil -->
 						<div class="col-12 col-md-3 col-xl-2 text-center">
-						    <img class="resume-profile-image mb-3 mb-md-0 me-md-5  ms-md-0 rounded mx-auto" src="assets/images/resume-profile.png" alt="image">
+							<img class="resume-profile-image mb-3 mb-md-0 me-md-5 ms-md-0 rounded mx-auto"
+							     src="assets/images/resume-profile.webp"
+							     alt="Foto de perfil de Jackson Garcia">
 						</div>
-						
+
+						<!-- Texto de Apresentação (Bio) -->
 						<div class="col text-start">
 							<p class="mb-0">Desenvolvedor Web Front-end com experiência na criação de aplicações web responsivas e orientadas ao utilizador, utilizando HTML, CSS, JavaScript e React. Atuação prática através de projetos open source e desenvolvimento freelance para pequenas empresas e startups em Portugal. Conhecimento em arquitetura baseada em componentes, integração com APIs, otimização de performance e controlo de versões com GitHub. Atualmente a frequentar o Mestrado em Informática no ISTEC – Instituto Superior de Tecnologias Avançadas, com fundamentos consistentes em sistemas e desenvolvimento de software no ramo de dispositivos moveis e multimídia. Destaco-me pela capacidade de transformar requisitos de negócio em soluções digitais funcionais, com foco em clareza, performance e experiência do utilizador. </p>
 						</div><!--//col-->
+
 					</div>
 				</div><!--//resume-intro-->
+
+
+				<!-- ============================================================
+				  CORPO DO CURRÍCULO
+				  → Dividido em duas colunas via Bootstrap:
+				    - .resume-main  (col-lg-8): coluna principal — Experiências
+				    - .resume-aside (col-lg-4): barra lateral — Skills, Educação, etc.
+				============================================================ -->
 				<div class="resume-body">
-					<div class="row">
-						<div class="resume-main col-12 col-lg-8 col-xl-9   pe-0   pe-lg-5">
+					<div class="row g-0">
+
+						<!-- ================================================
+						  COLUNA PRINCIPAL — Experiência Profissional
+						  → Para ADICIONAR uma nova experiência:
+						    1. Copie o bloco <div class="item mb-3">...</div>
+						    2. Cole abaixo do último item existente
+						    3. Atualize cargo, empresa, local, data e descrição
+						  → Para REMOVER uma experiência:
+						    apague o bloco completo entre  item  e  //item 
+						================================================ -->
+						<div class="resume-main col-12 col-lg-8 col-xl-9">
 							<section class="work-section py-3">
-								<h3 class="text-uppercase resume-section-heading mb-4">Experiência Profissional</h3>
+								<h3 class="text-uppercase resume-section-heading mb-4">
+									<i class="fas fa-briefcase"></i>Experiência Profissional
+								</h3>
+
+								<!-- EXPERIÊNCIA 1 → Altere cargo, empresa, local, período e bullets -->
 								<div class="item mb-3">
 									<div class="item-heading row align-items-center mb-2">
+										<!-- Cargo / Título da Posição -->
 										<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">Freelance Web Developer</h4>
+										<!-- Local e Período → formato: "País | Ano - Ano" ou "Ano - Present" -->
 										<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end">Portugal | 2024 - Present</div>
-										
 									</div>
 									<div class="item-content">
+										<!-- Parágrafo descritivo da função -->
 										<p>Atuação no desenvolvimento de websites institucionais e landing pages para profissionais das áreas da saúde, direito e comércio local. Trabalho focado na criação de soluções modernas, responsivas e orientadas à conversão, desde o levantamento de requisitos até à entrega final. <br><br>Responsável por traduzir necessidades de negócio em implementações técnicas eficientes, garantindo alinhamento entre design, funcionalidade e objetivos comerciais.</p>
+										<!-- Bullets de responsabilidades → adicione ou remova <li> conforme necessário -->
 										<ul class="resume-list">
 											<li>Construção de interfaces web utilizando HTML5, CSS3, JavaScript (ES6+) e React</li>
 											<li>Desenvolvimento e personalização de websites em WordPress com Elementor</li>
@@ -83,11 +176,12 @@
 										</ul>
 									</div>
 								</div><!--//item-->
+
+								<!-- EXPERIÊNCIA 2 -->
 								<div class="item mb-3">
 									<div class="item-heading row align-items-center mb-2">
 										<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">Desenvolvedor Front-end | e-cordel (Projeto Open Source)</h4>
 										<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end">Portugal | 2023 - 2025</div>
-										
 									</div>
 									<div class="item-content">
 										<p>Integrei o projeto e-cordel durante o Mestrado em Informática, colaborando numa plataforma digital dedicada à preservação e difusão da literatura de Cordel. Atuei no desenvolvimento de interfaces modernas e escaláveis, contribuindo para a evolução contínua da aplicação num ambiente colaborativo real, com práticas de versionamento e revisão de código.</p>
@@ -101,10 +195,12 @@
 										</ul>
 									</div>
 								</div><!--//item-->
+
+								<!-- EXPERIÊNCIA 3 -->
 								<div class="item mb-3">
 									<div class="item-heading row align-items-center mb-2">
 										<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">Operador de Sistemas — SECITEC (Secretaria de Ciência e Tecnologia)</h4>
-										<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end">Brasil | 2021 - 2022</div>										
+										<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end">Brasil | 2021 - 2022</div>
 									</div>
 									<div class="item-content">
 										<p>Atuei na manutenção de sistemas, redes e infraestrutura de hardware, garantindo o funcionamento contínuo dos recursos tecnológicos da instituição. Durante este período, desenvolvi uma aplicação interna para gestão de chamados e serviços, com o objetivo de otimizar o controlo e a organização das solicitações técnicas. <br><br>Paralelamente, participei na organização de eventos, cursos e atividades nas áreas de robótica e astronomia, promovendo o acesso à tecnologia e incentivando o interesse de jovens estudantes pelo setor tecnológico. Esta experiência reforçou a minha base em sistemas, resolução de problemas técnicos e contacto direto com utilizadores.</p>
@@ -116,123 +212,215 @@
 										</ul>
 									</div>
 								</div><!--//item-->
-							
-							</section><!--//END work-section-->
-<!--//Start Project-section (pedente!)
-							
-							<section class="project-section py-3">
-								<h3 class="text-uppercase resume-section-heading mb-4">Projects</h3>
-								<div class="item mb-3">
-									<div class="item-heading row align-items-center mb-2">
-										<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">Project Lorem Ipsum</h4>
-										<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end">Open Source</div>
-										
+
+								<!-- ================================================
+								  SEÇÃO DE PROJETOS (DESATIVADA)
+								  → Para ativar: remova este comentário e o de fechamento.
+								  → Para adicionar projetos: copie o bloco .item e preencha.
+								  → Ícone sugerido: fas fa-folder-open ou fas fa-code-branch
+								================================================
+								<section class="project-section py-3">
+									<h3 class="text-uppercase resume-section-heading mb-4">
+										<i class="fas fa-folder-open"></i>Projetos
+									</h3>
+									<div class="item mb-3">
+										<div class="item-heading row align-items-center mb-2">
+											<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">Nome do Projeto</h4>
+											<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end">Open Source</div>
+										</div>
+										<div class="item-content">
+											<p>Descrição do projeto. <a href="#" class="resume-link">Ver repositório</a>.</p>
+										</div>
 									</div>
-									<div class="item-content">
-										<p>You can use this section for your side projects. You can <a href="#" class="theme-link">provide a project link here</a> as well. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-										
-										
-									</div>
-								</div><!--//item-->
-							</section><!--//project-section-->	
+								</section>
+								================================================ -->
+
+							</section><!--//work-section-->
 						</div><!--//resume-main-->
-						<aside class="resume-aside col-12 col-lg-4 col-xl-3 px-lg-4 pb-lg-4">
+
+
+						<!-- ================================================
+						  BARRA LATERAL (ASIDE)
+						  → Contém: Skills, Formação, Certificações, Idiomas, Interesses
+						  → Cada seção é independente — pode reordenar, adicionar
+						    ou remover seções livremente.
+						================================================ -->
+						<aside class="resume-aside col-12 col-lg-4 col-xl-3">
+
+							<!-- COMPETÊNCIAS
+							  → TÉCNICAS: ferramentas, linguagens e frameworks que domina
+							  → COMPORTAMENTAIS: soft skills
+							  → Para adicionar: <li class="mb-2">Nova Skill</li>
+							  → Para remover: apague o <li> correspondente -->
 							<section class="skills-section py-3">
-								<h3 class="text-uppercase resume-section-heading mb-4">Competências</h3>
+								<h3 class="text-uppercase resume-section-heading mb-4">
+									<i class="fas fa-code"></i>Competências
+								</h3>
+
 								<div class="item">
-									<h4 class="item-title">Competências Técnicas</h4>
+									<h4 class="item-title"><i class="fas fa-terminal"></i>Competências Técnicas</h4>
 									<ul class="list-unstyled resume-skills-list">
 										<li class="mb-2">HTML, CSS, JavaScript</li>
 										<li class="mb-2">React, Bootstrap</li>
-											<li class="mb-2">GitHub, WordPress, Elementor, Figma</li>
-											<li class="mb-2">Design Responsivo, Reutilização de Componentes, Integração com APIs</li>
-											<li class="mb-2">Performance Web, Implementação UI/UX</li>
-										</ul>
-									</div><!--//item-->
-									<div class="item">
-										<h4 class="item-title">Competências Comportamentais</h4>
-										<ul class="list-unstyled resume-skills-list">
-											<li class="mb-2">Adaptabilidade</li>
-											<li class="mb-2">Trabalho em equipa</li>
-											<li class="mb-2">Comunicação</li>
-											<li class="mb-2">Proatividade</li>
-											<li class="mb-2">Resiliência</li>
-											<li class="mb-2">Mentalidade aberta</li>
-											</ul>
-										</div><!--//item-->
-									</section><!--//skills-section-->
-									<section class="education-section py-3">
-										<h3 class="text-uppercase resume-section-heading mb-4">Formação Académica</h3>
-										<ul class="list-unstyled resume-education-list">
-											<li class="mb-3">
-												<div class="resume-degree font-weight-bold">Mestrado em Informática (em curso)</div>
-												<div class="resume-degree-org text-muted">ISTEC – Instituto Superior de Tecnologias Avançadas</div>
-												<div class="resume-degree-time text-muted">2022 - Presente</div>
-											</li>
-											<li>
-												<div class="resume-degree font-weight-bold">Análise e Desenvolvimento de Sistemas</div>
-												<div class="resume-degree-org text-muted">Uninter – Centro Universitário Internacional</div>
-												<div class="resume-degree-time text-muted">2020</div>
-											</li>
-										</ul>
-									</section><!--//education-section-->
-									<section class="education-section py-3">
-										<h3 class="text-uppercase resume-section-heading mb-4">Certificações</h3>
-										<ul class="list-unstyled resume-awards-list">
-											<li class="mb-3">
-												<div class="font-weight-bold">Front-end Developer</div>
-												<div class="text-muted">Iwtraining (96 horas) · 2022</div>
-											</li>
-											<li class="mb-3">
-												<div class="font-weight-bold">Legacy Responsive Web Design</div>
-												<div class="text-muted">freeCodeCamp · 2022</div>
-											</li>
-											<li class="mb-3">
-												<div class="font-weight-bold">Bootcamp GoStack</div>
-												<div class="text-muted">Rocketseat · 2020</div>
-											</li>
-										</ul>
-									</section><!--//education-section-->
-									<section class="skills-section py-3">
-										<h3 class="text-uppercase resume-section-heading mb-4">Idiomas</h3>
-										<ul class="list-unstyled resume-lang-list">
-											<li class="mb-2">Português <span class="text-muted">(Native)</span></li>
-											<li>Inglês <span class="text-muted">(Technical Reading Proficiency)</span></li>
-										</ul>
-									</section><!--//certificates-section-->
-									<section class="skills-section py-3">
-										<h3 class="text-uppercase resume-section-heading mb-4">Interesses</h3>
-										<ul class="list-unstyled resume-interests-list mb-0">
-											<li class="mb-2">Tecnologia & Desenvolvimento</li>
-											<li class="mb-2">Carreira & Crescimento Profissional</li>
-											<li class="mb-2">Aprendizagem Contínua</li>
-											<li class="mb-2">Família & Paternidade</li>
-											<li class="mb-2">Saúde, Rotina & Disciplina</li>
-											<li class="mb-2">Cultura & Lazer</li>
-											<li class="mb-2">Criação de Conteúdo</li>
-										</ul>
-									</section><!--//certificates-section-->
-									
-								</aside><!--//resume-aside-->
-							</div><!--//row-->
-						</div><!--//resume-body-->
-						<div class="resume-footer text-center">
-							<ul class="resume-social-list list-inline mx-auto mb-0 d-inline-block text-muted">
-								<li class="list-inline-item mb-lg-0 me-3"><a class="resume-link" href="https://github.com/jacksonangelo" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github-square fa-2x me-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">github.com/jacksonangelo</span></a></li>
-								<li class="list-inline-item mb-lg-0 me-3"><a class="resume-link" href="https://www.linkedin.com/in/jackson-angelo/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin fa-2x me-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">linkedin.com/in/jackson-angelo/</span></a></li>
-								<li class="list-inline-item mb-lg-0 me-lg-3"><a class="resume-link" href="https://x.com/jacksonangelo24" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-square-x-twitter fa-2x me-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">x.com/jacksonangelo24</span></a></li>
-							</ul>
-						</div><!--//resume-footer-->
-					</article>
-					
-				</div><!--//container-->
-				
-				<footer class="footer text-center py-4">
-				</footer>
-				
-			</div><!--//main-wrapper-->
-			
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html> 
+										<li class="mb-2">GitHub, WordPress, Elementor, Figma</li>
+										<li class="mb-2">Design Responsivo, Reutilização de Componentes, Integração com APIs</li>
+										<li class="mb-2">Performance Web, Implementação UI/UX</li>
+									</ul>
+								</div><!--//item-->
 
+								<div class="item">
+									<h4 class="item-title"><i class="fas fa-user-check"></i>Competências Comportamentais</h4>
+									<ul class="list-unstyled resume-skills-list">
+										<li class="mb-2">Adaptabilidade</li>
+										<li class="mb-2">Trabalho em equipa</li>
+										<li class="mb-2">Comunicação</li>
+										<li class="mb-2">Proatividade</li>
+										<li class="mb-2">Resiliência</li>
+										<li class="mb-2">Mentalidade aberta</li>
+									</ul>
+								</div><!--//item-->
+							</section><!--//skills-section-->
+
+
+							<!-- FORMAÇÃO ACADÉMICA
+							  → Para ADICIONAR: copie um <li> e preencha grau, instituição e ano.
+							  → .resume-degree      → nome do curso / grau
+							  → .resume-degree-org  → nome da instituição
+							  → .resume-degree-time → período (ex: "2020 - 2022") -->
+							<section class="education-section py-3">
+								<h3 class="text-uppercase resume-section-heading mb-4">
+									<i class="fas fa-graduation-cap"></i>Formação Académica
+								</h3>
+								<ul class="list-unstyled resume-education-list">
+									<li class="mb-3">
+										<div class="resume-degree font-weight-bold">Mestrado em Informática (em curso)</div>
+										<div class="resume-degree-org text-muted">ISTEC – Instituto Superior de Tecnologias Avançadas</div>
+										<div class="resume-degree-time text-muted">2022 - Presente</div>
+									</li>
+									<li>
+										<div class="resume-degree font-weight-bold">Análise e Desenvolvimento de Sistemas</div>
+										<div class="resume-degree-org text-muted">Uninter – Centro Universitário Internacional</div>
+										<div class="resume-degree-time text-muted">2020</div>
+									</li>
+								</ul>
+							</section><!--//education-section-->
+
+
+							<!-- CERTIFICAÇÕES
+							  → Para ADICIONAR: copie um <li> e preencha nome e emissor/ano.
+							  → .font-weight-bold → nome do certificado
+							  → .text-muted       → "Emissor · Ano" -->
+							<section class="education-section py-3">
+								<h3 class="text-uppercase resume-section-heading mb-4">
+									<i class="fas fa-award"></i>Certificações
+								</h3>
+								<ul class="list-unstyled resume-awards-list">
+									<li class="mb-3">
+										<div class="font-weight-bold">Front-end Developer</div>
+										<div class="text-muted">Iwtraining (96 horas) · 2022</div>
+									</li>
+									<li class="mb-3">
+										<div class="font-weight-bold">Legacy Responsive Web Design</div>
+										<div class="text-muted">freeCodeCamp · 2022</div>
+									</li>
+									<li class="mb-3">
+										<div class="font-weight-bold">Bootcamp GoStack</div>
+										<div class="text-muted">Rocketseat · 2020</div>
+									</li>
+								</ul>
+							</section><!--//education-section-->
+
+
+							<!-- IDIOMAS
+							  → Formato: Nome <span class="text-muted">(Nível)</span>
+							  → Níveis sugeridos: Native, Fluent, Advanced, Intermediate, Basic
+							  → Technical Reading Proficiency = leitura técnica -->
+							<section class="skills-section py-3">
+								<h3 class="text-uppercase resume-section-heading mb-4">
+									<i class="fas fa-globe"></i>Idiomas
+								</h3>
+								<ul class="list-unstyled resume-lang-list">
+									<li class="mb-2">Português <span class="text-muted">(Native)</span></li>
+									<li>Inglês <span class="text-muted">(Technical Reading Proficiency)</span></li>
+								</ul>
+							</section><!--//languages-section-->
+
+
+							<!-- INTERESSES
+							  → Lista simples de tópicos pessoais.
+							  → Para adicionar: <li class="mb-2">Novo Interesse</li> -->
+							<section class="skills-section py-3">
+								<h3 class="text-uppercase resume-section-heading mb-4">
+									<i class="fas fa-compass"></i>Interesses
+								</h3>
+								<ul class="list-unstyled resume-interests-list mb-0">
+									<li class="mb-2">Tecnologia & Desenvolvimento</li>
+									<li class="mb-2">Carreira & Crescimento Profissional</li>
+									<li class="mb-2">Aprendizagem Contínua</li>
+									<li class="mb-2">Família & Paternidade</li>
+									<li class="mb-2">Saúde, Rotina & Disciplina</li>
+									<li class="mb-2">Cultura & Lazer</li>
+									<li class="mb-2">Criação de Conteúdo</li>
+								</ul>
+							</section><!--//interests-section-->
+
+						</aside><!--//resume-aside-->
+					</div><!--//row-->
+				</div><!--//resume-body-->
+
+
+				<!-- ============================================================
+				  RODAPÉ (FOOTER)
+				  → ALTERE AQUI:
+				    - Links das redes sociais (GitHub, LinkedIn, X/Twitter)
+				    - Para cada <li>: troque o href e o texto visível (<span>)
+				  → Para ADICIONAR uma rede social:
+				    1. Copie um <li> existente
+				    2. Troque o ícone fa-brands fa-XXXXX
+				    3. Atualize o href e o texto do <span>
+				  → Para REMOVER: apague o <li> correspondente
+				  → O botão "Download PDF" usa window.print() — não requer
+				    nenhum ficheiro PDF externo; o browser gera o PDF.
+				============================================================ -->
+				<div class="resume-footer">
+
+					<!-- Redes Sociais -->
+					<ul class="resume-social-list list-inline mb-0 d-inline-block text-muted">
+						<li class="list-inline-item mb-lg-0 me-3">
+							<a class="resume-link" href="https://github.com/jacksonangelo" target="_blank" rel="noopener noreferrer">
+								<i class="fa-brands fa-github-square fa-2x me-2" data-fa-transform="down-4"></i>
+								<span class="d-none d-lg-inline-block text-muted">github.com/jacksonangelo</span>
+							</a>
+						</li>
+						<li class="list-inline-item mb-lg-0 me-3">
+							<a class="resume-link" href="https://www.linkedin.com/in/jackson-angelo/" target="_blank" rel="noopener noreferrer">
+								<i class="fa-brands fa-linkedin fa-2x me-2" data-fa-transform="down-4"></i>
+								<span class="d-none d-lg-inline-block text-muted">linkedin.com/in/jackson-angelo/</span>
+							</a>
+						</li>
+						<li class="list-inline-item mb-lg-0 me-lg-3">
+							<a class="resume-link" href="https://x.com/jacksonangelo24" target="_blank" rel="noopener noreferrer">
+								<i class="fa-brands fa-square-x-twitter fa-2x me-2" data-fa-transform="down-4"></i>
+								<span class="d-none d-lg-inline-block text-muted">x.com/jacksonangelo24</span>
+							</a>
+						</li>
+					</ul>
+
+					<!-- Botão de Download — abre diálogo de impressão do browser (Ctrl+P → Guardar como PDF) -->
+					<a href="#" onclick="window.print(); return false;" class="btn-download-pdf">
+						<i class="fas fa-download"></i> Download PDF
+					</a>
+
+				</div><!--//resume-footer-->
+			</article>
+
+		</div><!--//container-->
+
+		<footer class="footer text-center py-4"></footer>
+
+	</div><!--//main-wrapper-->
+
+	<!-- Bootstrap JS (necessário apenas para componentes interativos como modais/toasts) -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

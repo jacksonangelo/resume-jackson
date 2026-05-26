@@ -1,134 +1,125 @@
+/* =====================================================
+   RESUME ONLINE — Jackson Garcia
+   Palette: Slate Navy + Electric Blue (premium dev)
+
+   COMO PERSONALIZAR AS CORES:
+   → Todas as cores estão centralizadas nas variáveis CSS
+     na seção ":root" abaixo.
+   → Basta trocar os valores hexadecimais para mudar
+     toda a paleta de cor do projeto de uma só vez.
+
+   DICA: use https://coolors.co para criar paletas harmónicas.
+===================================================== */
+
+
+/* =====================================================
+   VARIÁVEIS DE COR
+   → --primary       : cor principal (botões, links, destaques)
+   → --primary-dark  : versão escura do primário (hover)
+   → --primary-light : versão clara (bordas, fundos suaves)
+   → --accent        : cor de destaque (usada no header escuro)
+   → --dark          : cor do header, footer e títulos fortes
+   → --body          : cor do texto corrido
+   → --muted         : cor de textos secundários (datas, subinfo)
+   → --border        : cor das bordas e divisórias
+   → --aside-bg      : fundo da barra lateral
+   → --page-bg       : fundo da página inteira
+   → --white         : branco puro
+===================================================== */
 :root {
-  --primary: #e05353;
-  --dark: #2d2d2d;
-  --muted: #6c757d;
-  --light-bg: #f5f7f9;
+  --primary:       #2563EB;  /* Azul principal → troque para mudar a cor de destaque */
+  --primary-dark:  #1D4ED8;  /* Azul escuro → hover de botões e links */
+  --primary-light: #DBEAFE;  /* Azul muito claro → bordas e fundos sutis */
+  --accent:        #60A5FA;  /* Azul claro → textos sobre fundo escuro */
+  --dark:          #0F172A;  /* Quase preto → header, footer, títulos */
+  --body:          #1E293B;  /* Cinza escuro → texto principal */
+  --muted:         #64748B;  /* Cinza médio → datas, textos secundários */
+  --border:        #CBD5E1;  /* Cinza claro → bordas e linhas divisórias */
+  --aside-bg:      #F0F4FF;  /* Azul levíssimo → fundo da barra lateral */
+  --page-bg:       #DDE3EE;  /* Cinza azulado → fundo da página */
+  --white:         #FFFFFF;
 }
 
-/* Base */
+
+/* =====================================================
+   BASE — Reset e tipografia global
+   → font-family: troque 'Inter' por qualquer Google Font
+     (lembre de atualizar também o <link> no HTML)
+   → font-size: 0.875rem = 14px — base confortável para CV
+===================================================== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
 body {
-  font-family: 'Roboto', sans-serif;
-  background: #eef1f4;
-  color: var(--dark);
+  font-family: 'Inter', 'Roboto', sans-serif; /* → troque a fonte aqui */
+  background: var(--page-bg);
+  color: var(--body);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
+
+/* =====================================================
+   CARTÃO PRINCIPAL (.resume-wrapper)
+   → max-width: largura máxima do CV (padrão A4-like: 1040px)
+   → border-radius: arredondamento dos cantos do cartão
+   → box-shadow: sombra que dá profundidade ao cartão
+===================================================== */
 .resume-wrapper {
-  max-width: 1000px;
-  background: #fff;
-  border-radius: 6px;
+  max-width: 1040px;
+  background: var(--white);
+  border-radius: 14px;
+  overflow: hidden;    /* garante que o header escuro respeite os cantos arredondados */
+  box-shadow: 0 8px 48px rgba(15, 23, 42, 0.16);
+  padding: 0 !important; /* remove padding do Bootstrap para controlar por seção */
 }
 
-/* HEADER */
+
+/* =====================================================
+   CABEÇALHO (.resume-header)
+   → Fundo escuro com linha gradiente no topo (::before)
+   → position: relative necessário para posicionar o ::before
+===================================================== */
+.resume-header {
+  background: var(--dark);
+  padding: 2rem 2.5rem;
+  position: relative;
+}
+
+/* Linha decorativa gradiente no topo do header
+   → Troque as cores do gradient para mudar o efeito */
+.resume-header::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+}
+
+/* Nome completo
+   → letter-spacing: espaçamento entre letras (estilo premium)
+   → font-size: ajuste o tamanho conforme o comprimento do nome */
 .resume-name {
-  color: var(--primary);
+  color: var(--white);
   font-weight: 900;
-  letter-spacing: 6px;
-  font-size: 2rem;
+  letter-spacing: 5px;
+  font-size: 1.75rem;
+  line-height: 1.2;
 }
 
+/* Subtítulo / Cargo
+   → letter-spacing: espaçamento elegante para taglines */
 .resume-tagline {
-  color: var(--muted);
-  font-size: 0.95rem;
-  margin-top: -6px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  margin-top: 6px;
 }
 
-/* FOTO */
-.resume-profile-image {
-  width: 95px;
-  border-radius: 50%;
-}
-
-/* TÍTULOS DAS SEÇÕES (barrinha verde) */
-.resume-section-heading {
-  font-size: 0.85rem;
-  letter-spacing: 2px;
-  font-weight: 700;
-  color: var(--primary);
-  border-left: 4px solid var(--primary);
-  padding-left: 10px;
-  margin-bottom: 18px;
-}
-
-/* TEXTOS */
-.item-title {
-  font-weight: 700;
-  font-size: 0.95rem;
-}
-
-.item-meta {
-  font-size: 0.75rem;
-  color: var(--muted);
-}
-
-.resume-list li {
-  margin-bottom: 6px;
-  font-size: 0.85rem;
-}
-
-/* COLUNA DIREITA */
-.resume-aside {
-  background: var(--light-bg);
-  padding: 20px;
-  border-radius: 6px;
-}
-
-.resume-aside .item-title {
-  font-size: 0.85rem;
-  font-weight: 700;
-}
-
-.resume-skills-list li,
-.resume-lang-list li,
-.resume-interests-list li {
-  font-size: 0.82rem;
-  margin-bottom: 6px;
-}
-/* Corrige quebra do email e alinhamento do header */
-.resume-contact li {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.resume-contact a {
-  word-break: break-all;
-}
-
-/* LINKS */
-.resume-link {
-  text-decoration: none;
-  color: var(--dark);
-  font-size: 0.85rem;
-}
-
-.resume-link:hover {
-  color: var(--primary);
-}
-
-/* FOOTER */
-.resume-footer {
-  font-size: 0.8rem;
-  color: var(--muted);
-}
-/* Alinhamento perfeito dos ícones */
-.icon {
-  width: 22px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 10px;
-  color: var(--primary);
-  font-size: 14px;
-}
-
-/* Footer social alinhado */
-.resume-social-list a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/* Corrige alinhamento do bloco de contactos em telas grandes */
+/* Lista de contactos no header */
 .resume-contact ul {
   text-align: left !important;
 }
@@ -137,4 +128,584 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 8px;
+  color: #94A3B8;
+  font-size: 0.78rem;
+  margin-bottom: 7px !important;
+}
+
+.resume-contact .resume-link {
+  color: #94A3B8;
+  font-size: 0.78rem;
+  word-break: break-all; /* evita overflow de emails/URLs longos */
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.resume-contact .resume-link:hover {
+  color: var(--accent);
+}
+
+
+/* =====================================================
+   ÍCONES (.icon e ícones de contacto)
+   → width + min-width: garante alinhamento consistente
+     entre ícones de tamanhos diferentes
+   → color: var(--accent) → ícones usam a cor de destaque
+===================================================== */
+.icon,
+.resume-contact i {
+  color: var(--accent);
+  width: 16px;
+  min-width: 16px;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  text-align: center;
+  margin-right: 0;
+  margin-top: 2px;
+}
+
+
+/* =====================================================
+   INTRODUÇÃO / BIO (.resume-intro)
+   → Contém foto de perfil + parágrafo de apresentação
+===================================================== */
+.resume-intro {
+  padding: 1.75rem 2.5rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+}
+
+/* Foto de perfil
+   → width / height: tamanho da foto (quadrado simétrico)
+   → border-radius: arredondamento dos cantos da imagem
+     Use 50% para circular, 14px para retangular arredondado
+   → object-fit: cover garante que a imagem não distorça */
+.resume-profile-image {
+  width: 90px;
+  height: 90px;
+  border-radius: 14px; /* → ajuste conforme o formato da sua foto */
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+.resume-intro p {
+  font-size: 0.82rem;
+  color: var(--body);
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+
+/* =====================================================
+   BOTÃO DOWNLOAD PDF (.btn-download-pdf)
+   → Usa window.print() do JavaScript — não precisa de PDF externo
+   → @media print: esconde o botão ao gerar o PDF
+   → Para mudar a cor: altere background e o rgba do box-shadow
+===================================================== */
+.btn-download-pdf {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--primary);
+  color: var(--white) !important;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 7px 18px;
+  border-radius: 20px;
+  text-decoration: none !important;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);
+}
+
+.btn-download-pdf:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.45);
+}
+
+.btn-download-pdf i {
+  font-size: 0.65rem;
+}
+
+/* Esconde o botão quando o utilizador gera o PDF via Ctrl+P */
+@media print {
+  .btn-download-pdf { display: none !important; }
+}
+
+
+/* =====================================================
+   LAYOUT DO CORPO (.resume-body)
+   → g-0 no HTML remove os gutters do Bootstrap
+   → margin: 0 aqui evita overflow horizontal indesejado
+===================================================== */
+.resume-body > .row {
+  margin: 0;
+}
+
+/* Coluna principal — padding interno generoso para respiro visual */
+.resume-main {
+  padding: 2rem 2.5rem;
+}
+
+
+/* =====================================================
+   TÍTULOS DAS SEÇÕES (.resume-section-heading)
+   → Estilo: texto pequeno, espaçado, com linha inferior
+   → font-size pequeno + letter-spacing largo = visual premium
+   → border-bottom: linha fina azul claro como divisória
+   → Para mudar o ícone de uma seção: edite o <i class="fas fa-...">
+     no HTML e consulte https://fontawesome.com/icons
+===================================================== */
+.resume-section-heading {
+  font-size: 0.62rem;
+  letter-spacing: 3px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  border: none;
+  padding: 0 0 8px 0;
+  border-bottom: 2px solid var(--primary-light);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.resume-section-heading i {
+  font-size: 0.72rem;
+  opacity: 0.85;
+  flex-shrink: 0;
+}
+
+
+/* =====================================================
+   ITENS DE EXPERIÊNCIA — estilo timeline
+   → border-left + ::before cria o efeito de linha temporal
+   → O ponto azul (::before) marca cada entrada na timeline
+===================================================== */
+.work-section .item {
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--border);
+  position: relative;
+  margin-bottom: 1.75rem;
+}
+
+.work-section .item:last-child {
+  margin-bottom: 0;
+}
+
+/* Ponto circular na timeline */
+.work-section .item::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 2px solid var(--white);
+  box-shadow: 0 0 0 2px var(--primary);
+}
+
+.item-heading {
+  margin-bottom: 0.5rem !important;
+}
+
+/* Título do cargo / empresa */
+.item-title {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--dark);
+  line-height: 1.4;
+  margin-bottom: 0;
+}
+
+/* Badge de localização e período (ex: "Portugal | 2024 - Present") */
+.item-meta {
+  font-size: 0.68rem;
+  color: var(--muted);
+  background: #F1F5F9;
+  padding: 2px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  border: 1px solid var(--border);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.item-content p {
+  font-size: 0.8rem;
+  color: var(--body);
+  line-height: 1.75;
+  margin-bottom: 0.6rem;
+}
+
+/* Lista de bullets (responsabilidades)
+   → O símbolo ▸ é adicionado via CSS — não precisa escrever no HTML */
+.resume-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.resume-list li {
+  margin-bottom: 5px;
+  font-size: 0.78rem;
+  color: var(--body);
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+.resume-list li::before {
+  content: '▸'; /* → troque por '-', '•', '→' se preferir outro símbolo */
+  color: var(--primary);
+  position: absolute;
+  left: 0;
+  font-size: 0.62rem;
+  top: 3px;
+}
+
+
+/* =====================================================
+   BARRA LATERAL (.resume-aside)
+   → Fundo ligeiramente azulado para diferenciar do corpo principal
+   → border-left: linha divisória sutil entre colunas
+===================================================== */
+.resume-aside {
+  background: var(--aside-bg);
+  border-left: 1px solid var(--border);
+  padding: 2rem 1.5rem !important;
+}
+
+/* Títulos de seção na sidebar (ligeiramente menores) */
+.resume-aside .resume-section-heading {
+  font-size: 0.58rem;
+  letter-spacing: 2.5px;
+}
+
+/* Sub-títulos dentro das seções (ex: "Competências Técnicas") */
+.resume-aside .item-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--dark);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 0.6rem;
+  margin-top: 0.2rem;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.resume-aside .item-title i {
+  color: var(--primary);
+  font-size: 0.65rem;
+  opacity: 0.8;
+}
+
+.resume-aside .item {
+  margin-bottom: 0.4rem;
+}
+
+
+/* =====================================================
+   SKILLS — Tags / Chips (.resume-skills-list)
+   → Cada <li> vira uma pílula com hover interativo
+   → Para mudar a cor do hover: altere background no :hover
+===================================================== */
+.resume-skills-list {
+  display: flex;
+  flex-wrap: wrap; /* quebra linha automaticamente quando não cabe */
+  gap: 5px;
+  padding: 0;
+  list-style: none;
+  margin-bottom: 0.4rem;
+}
+
+.resume-skills-list li {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 0.7rem;
+  color: var(--dark);
+  margin-bottom: 0 !important;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+  cursor: default;
+}
+
+.resume-skills-list li:hover {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+
+/* =====================================================
+   FORMAÇÃO ACADÉMICA (.resume-education-list)
+   → Mini-timeline com ponto azul e linha lateral clara
+===================================================== */
+.resume-education-list {
+  padding: 0;
+  list-style: none;
+}
+
+.resume-education-list li {
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--primary-light);
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+/* Ponto da timeline */
+.resume-education-list li::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+/* Nome do curso / grau */
+.resume-degree {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.4;
+}
+
+/* Nome da instituição */
+.resume-degree-org {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* Período (ano) → em azul para destaque visual */
+.resume-degree-time {
+  font-size: 0.67rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+
+/* =====================================================
+   CERTIFICAÇÕES (.resume-awards-list)
+   → Mesma estética da formação académica
+===================================================== */
+.resume-awards-list {
+  padding: 0;
+  list-style: none;
+}
+
+.resume-awards-list li {
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--primary-light);
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+
+.resume-awards-list li::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.resume-awards-list .font-weight-bold {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.4;
+}
+
+.resume-awards-list .text-muted {
+  font-size: 0.7rem !important;
+  color: var(--muted) !important;
+  margin-top: 2px;
+  display: block;
+}
+
+
+/* =====================================================
+   IDIOMAS (.resume-lang-list)
+   → Ponto colorido antes de cada idioma como marcador visual
+===================================================== */
+.resume-lang-list {
+  padding: 0;
+  list-style: none;
+}
+
+.resume-lang-list li {
+  font-size: 0.78rem;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+/* Ponto decorativo antes do idioma */
+.resume-lang-list li::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+}
+
+.resume-lang-list .text-muted {
+  font-size: 0.7rem;
+  color: var(--muted) !important;
+}
+
+
+/* =====================================================
+   INTERESSES (.resume-interests-list)
+   → Ponto pequeno como marcador minimalista
+===================================================== */
+.resume-interests-list {
+  padding: 0;
+  list-style: none;
+}
+
+.resume-interests-list li {
+  font-size: 0.76rem;
+  color: var(--body);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.resume-interests-list li::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+}
+
+
+/* =====================================================
+   RODAPÉ (.resume-footer)
+   → Fundo escuro igual ao header (consistência visual)
+   → flexbox com space-between: social links à esquerda,
+     botão PDF à direita
+===================================================== */
+.resume-footer {
+  background: var(--dark);
+  padding: 1.25rem 2rem;
+  border-top: 1px solid #1E293B;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* social links ← → botão PDF */
+  gap: 1rem;
+}
+
+.resume-footer .resume-link {
+  color: #64748B;
+  font-size: 0.78rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.resume-footer .resume-link:hover {
+  color: var(--accent);
+}
+
+.resume-footer .text-muted {
+  color: #475569 !important;
+}
+
+/* Links das redes sociais no footer */
+.resume-social-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+}
+
+.resume-footer .fa-2x {
+  font-size: 1.3em;
+  color: #475569;
+  transition: color 0.2s;
+}
+
+.resume-footer a:hover .fa-2x {
+  color: var(--accent);
+}
+
+
+/* =====================================================
+   LINKS GLOBAIS
+===================================================== */
+a.resume-link {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+a.resume-link:hover {
+  color: var(--primary);
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE
+   → Breakpoints do Bootstrap:
+     < 992px (lg): tablet paisagem / desktop pequeno
+     < 768px (md): tablet retrato / mobile grande
+   → Em tablet: sidebar vai para baixo da coluna principal
+   → Em mobile: bordas e padding reduzidos para aproveitar espaço
+===================================================== */
+@media (max-width: 991.98px) {
+  .resume-header  { padding: 1.5rem; }
+  .resume-intro   { padding: 1.5rem; }
+  .resume-main    { padding: 1.5rem; }
+
+  /* Sidebar empilhada abaixo: remove border lateral, adiciona borda superior */
+  .resume-aside {
+    border-left: none !important;
+    border-top: 1px solid var(--border);
+    padding: 1.5rem !important;
+  }
+
+  .resume-name {
+    font-size: 1.4rem;
+    letter-spacing: 3px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .resume-wrapper {
+    border-radius: 8px;
+    margin: 0.5rem !important;
+  }
+
+  .resume-name {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+
+  .item-meta { margin-top: 4px; }
+  .resume-skills-list { gap: 4px; }
 }
